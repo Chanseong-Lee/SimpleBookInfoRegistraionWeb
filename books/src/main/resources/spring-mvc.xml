@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:tx="http://www.springframework.org/schema/tx"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xmlns:mvc="http://www.springframework.org/schema/mvc"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx.xsd
+http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd">
+	
+	<mvc:annotation-driven/><!-- MVC관련 어노테이션 쓸거다 -->
+	
+	<mvc:default-servlet-handler/><!-- 디폴트 서블릿 관련 -->
+	
+	<mvc:view-resolvers><!-- view를 해석해줌, 포워딩을 스프링이 대신 해준다. -->
+		<mvc:jsp prefix="/WEB-INF/views/"/> <!-- jsp파일이 저장될 경로와 확장자 지정.(suffix의 디폴트가 jsp이므로 안써도됨) -->
+	</mvc:view-resolvers>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"><!-- bean id는 고정 -->
+		<property name="basenames"><!-- basename은 list를 값으로 갖고 여러 설정파일일 경우 value태그를 추가 -->
+			<list>
+				<value>message.label</value><!-- message/label.properties파일을 읽어온다는 의미 -->
+			</list>
+		</property>
+		<property name="defaultEncoding" value="UTF-8"/>
+	</bean>
+	
+</beans>
