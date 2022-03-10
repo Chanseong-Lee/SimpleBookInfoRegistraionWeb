@@ -1,27 +1,25 @@
 package booksdto;
 
 public class BooksDTO {
-	private int num;
-	private int isbn;
+	private Long num;
+	private Long isbn;
 	private String bookname;
 	private String writer;
 	private String publisher;
-	private int price;
+	private Long price;
 	private String content;
-	private String filename;
+	private String savedFilename;
 	private String realFilename;
-	
-	
-	public int getNum() {
+	public Long getNum() {
 		return num;
 	}
-	public void setNum(int num) {
+	public void setNum(Long num) {
 		this.num = num;
 	}
-	public int getIsbn() {
+	public Long getIsbn() {
 		return isbn;
 	}
-	public void setIsbn(int isbn) {
+	public void setIsbn(Long isbn) {
 		this.isbn = isbn;
 	}
 	public String getBookname() {
@@ -42,10 +40,10 @@ public class BooksDTO {
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
 	}
-	public int getPrice() {
+	public Long getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+	public void setPrice(Long price) {
 		this.price = price;
 	}
 	public String getContent() {
@@ -54,11 +52,11 @@ public class BooksDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getFilename() {
-		return filename;
+	public String getSavedFilename() {
+		return savedFilename;
 	}
-	public void setFilename(String filename) {
-		this.filename = filename;
+	public void setSavedFilename(String savedFilename) {
+		this.savedFilename = savedFilename;
 	}
 	public String getRealFilename() {
 		return realFilename;
@@ -66,5 +64,8 @@ public class BooksDTO {
 	public void setRealFilename(String realFilename) {
 		this.realFilename = realFilename;
 	}
+	
+	
+	
 	
 }

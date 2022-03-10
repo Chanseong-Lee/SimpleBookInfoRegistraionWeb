@@ -53,5 +53,19 @@ http://www.springframework.org/schema/aop/spring-aop.xsd">
 	</bean>
 	
 	<!-- service객체 -->
+	<bean id="contentService" class="service.ContentService">
+		<property name="booksDAO" ref="booksDAO"/> 
+	</bean>
 	
+	<bean id="registBookService" class="service.RegistBookService">
+		<property name="booksDAO" ref="booksDAO"/>
+	</bean>
+	
+	<bean id="listService" class="service.ListService">
+		<property name="booksDAO" ref="booksDAO"/>
+	</bean>
+	
+	<bean id="searchBookService" class="service.SearchBookService">
+		<property name="booksDAO" ref="booksDAO"/>
+	</bean>
 </beans>

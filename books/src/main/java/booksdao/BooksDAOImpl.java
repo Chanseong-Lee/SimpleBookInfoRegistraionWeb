@@ -38,9 +38,14 @@ public class BooksDAOImpl implements BooksDAO {
 	}
 
 	@Override
-	public BooksDTO selectContent(int num) {
+	public BooksDTO selectContent(Long num) {
 		return sqlSessionTemplate.selectOne("selectContent", num);
 	}
+	@Override
+	public BooksDTO selectByIsbn(Long isbn) {
+		return sqlSessionTemplate.selectOne("selectByIsbn", isbn);
+	}
+	
 	@Override
 	public int count() {
 		// TODO Auto-generated method stub
@@ -60,7 +65,7 @@ public class BooksDAOImpl implements BooksDAO {
 	}
 
 	@Override
-	public void delete(int num) {
+	public void delete(Long num) {
 		// TODO Auto-generated method stub
 		sqlSessionTemplate.delete("delete", num);
 	}

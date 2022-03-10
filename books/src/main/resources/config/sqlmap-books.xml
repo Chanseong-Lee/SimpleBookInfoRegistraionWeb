@@ -18,24 +18,27 @@
 	<select id="count" resultType="Integer">
 		select count(*) from "BOOKS"
 	</select>
-	<select id="selectContent" parameterType="Integer" resultType="booksDTO">
+	<select id="selectContent" parameterType="Long" resultType="booksDTO">
 		select * from "BOOKS" where "NUM"=#{num}
+	</select>
+	<select id="selectByIsbn" parameterType="Long" resultType="booksDTO">
+		select * from "BOOKS" where "ISBN"=#{isbn}
 	</select>
 	<update id="update" parameterType="booksDTO">
 		update "BOOKS"
 		set "ISBN"=#{isbn}, "BOOKNAME"=#{bookname},
 		"WRITER"=#{writer}, "PUBLISHER"=#{publisher}, "PRICE"=${price},
-		"CONTENT"=#{content}, "FILENAME"=#{filename},
+		"CONTENT"=#{content}, "SAVEDFILENAME"=#{savedFilename},
 		"REALFILENAME"=#{realFilename} where "NUM"=#{num}
 	</update>
-	<delete id="delete" parameterType="Integer">
+	<delete id="delete" parameterType="Long">
 		delete from "BOOKS" where "NUM"=#{num}
 	</delete>
 	<insert id="insert" parameterType="booksDTO">
-		insert into "BOOKS"(NUM, ISBN, BOOKNAME, WRITER, PUBLISHER, PRICE, CONTENT, FILENAME, REALFILENAME)
-		values("BOOKS_SEQ".nextval, #{isbn}, #{bookname}, #{writer}, #{publisher}, #{price}, #{content}, #{filename}, #{realFilename})
-		<selectKey keyProperty="num" resultType="Integer">
-			select nvl(max("NUM"), 0) from "BOOKS"		
+		insert into "BOOKS"(NUM, ISBN, BOOKNAME, WRITER, PUBLISHER, PRICE, CONTENT, SAVEDFILENAME, REALFILENAME)
+		values("BOOKS_SEQ".nextval, #{isbn}, #{bookname}, #{writer}, #{publisher}, #{price}, #{content}, #{savedFilename}, #{realFilename})
+		<selectKey keyProperty="num" resultType="Long">
+			select nvl(max(num), 0) from "BOOKS"		
 		</selectKey>
 	</insert>
 	
