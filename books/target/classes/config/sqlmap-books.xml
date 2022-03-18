@@ -27,7 +27,7 @@
 	<update id="update" parameterType="booksDTO">
 		update "BOOKS"
 		set "ISBN"=#{isbn}, "BOOKNAME"=#{bookname},
-		"WRITER"=#{writer}, "PUBLISHER"=#{publisher}, "PRICE"=${price},
+		"WRITER"=#{writer}, "PUBLISHER"=#{publisher}, "PRICE"=#{price},
 		"CONTENT"=#{content}, "SAVEDFILENAME"=#{savedFilename},
 		"REALFILENAME"=#{realFilename} where "NUM"=#{num}
 	</update>

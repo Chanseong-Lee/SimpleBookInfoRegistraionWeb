@@ -1,0 +1,11 @@
+create table "BOOKS_MEMBER"(
+    "M_NUM" number not null,
+    "EMAIL" varchar2(50) unique not null,
+    "NAME" varchar2(10) not null,
+    "PASSWORD" varchar2(70) not null,
+    "VALIDKEY" varchar2(10) not null,
+    constraint "BOOKS_M_PK" primary key("M_NUM")
+);
+
+create sequence "BOOKS_M_SEQ" start with 1
+increment by 1 noorder nocache nocycle;

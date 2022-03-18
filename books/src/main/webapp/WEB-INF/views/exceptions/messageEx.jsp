@@ -7,6 +7,6 @@
 <title>에러!</title>
 </head>
 <body>
-	<h1>존재하지 않는 책입니다.</h1>
+메시지에러!
 </body>
 </html>

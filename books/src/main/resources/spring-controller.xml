@@ -26,4 +26,6 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
 	<bean class="controller.SearchBookController">
 		<property name="searchBookService" ref="searchBookService"></property>
 	</bean>
+	
+	<bean class="controller.MemberRegController"></bean>
 </beans>

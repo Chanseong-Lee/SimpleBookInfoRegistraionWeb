@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.UUID;
 
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import booksdao.BooksDAO;
@@ -14,6 +15,7 @@ import exceptions.AlreadyExistingBookException;
 import exceptions.NoImageException;
 import validate.FileTypeByTika;
 
+@Service
 public class RegistBookService {
 	private BooksDAO booksDAO;
 	
@@ -50,6 +52,7 @@ public class RegistBookService {
 				}
 				//업로드진행
 				file = new File(path, savedFilename); //파일 객체 생성
+				inputStream.close();//파일 저장전 스트림 클로즈 해줘야 에러 발생안함
 				imgFile.transferTo(file);	//파일 저장
 			}
 			
@@ -64,7 +67,6 @@ public class RegistBookService {
 			newBook.setPublisher(rc.getPublisher());
 		
 			booksDAO.insert(newBook);
-			inputStream.close();
 		}catch(IOException e) {
 			e.printStackTrace();
 		}finally {

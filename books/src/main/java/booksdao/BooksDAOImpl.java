@@ -3,9 +3,11 @@ package booksdao;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.stereotype.Repository;
 
 import booksdto.BooksDTO;
 
+@Repository
 public class BooksDAOImpl implements BooksDAO {
 	
 	private SqlSessionTemplate sqlSessionTemplate;

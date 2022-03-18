@@ -2,10 +2,13 @@ package service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import booksdao.BooksDAO;
 import booksdto.BooksDTO;
 import command.SearchCommand;
 
+@Service
 public class SearchBookService {
 private BooksDAO booksDAO;
 	

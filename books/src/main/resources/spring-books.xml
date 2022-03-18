@@ -35,6 +35,7 @@ http://www.springframework.org/schema/aop/spring-aop.xsd">
 		<property name="mapperLocations">
 			<list>
 				<value>classpath:config/sqlmap-books.xml</value>
+				<value>classpath:config/sqlmap-member.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -52,6 +53,8 @@ http://www.springframework.org/schema/aop/spring-aop.xsd">
 		<constructor-arg ref="sqlSessionTemplate"/>
 	</bean>
 	
+	<bean id="memberDAO" class="booksdao.MemberDAOImpl"/>
+	
 	<!-- service객체 -->
 	<bean id="contentService" class="service.ContentService">
 		<property name="booksDAO" ref="booksDAO"/> 
@@ -68,4 +71,6 @@ http://www.springframework.org/schema/aop/spring-aop.xsd">
 	<bean id="searchBookService" class="service.SearchBookService">
 		<property name="booksDAO" ref="booksDAO"/>
 	</bean>
+	
+	<bean id="memberRegService" class="service.MemberRegService"></bean>
 </beans>

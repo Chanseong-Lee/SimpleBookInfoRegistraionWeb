@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:context="http://www.springframework.org/schema/context"
 xmlns:tx="http://www.springframework.org/schema/tx"
 xmlns:aop="http://www.springframework.org/schema/aop"
 xmlns:mvc="http://www.springframework.org/schema/mvc"
@@ -16,14 +17,18 @@ http://www.springframework.org/schema/aop
 http://www.springframework.org/schema/aop/spring-aop.xsd">
 	
 	<mvc:annotation-driven/><!-- MVC관련 어노테이션 쓸거다 -->
-	
+	<context:annotation-config/><!--  autowired 사용가능 -->
 	<mvc:default-servlet-handler/><!-- 디폴트 서블릿 관련 -->
 	
 	<mvc:view-resolvers><!-- view를 해석해줌, 포워딩을 스프링이 대신 해준다. -->
 		<mvc:jsp prefix="/WEB-INF/views/"/> <!-- jsp파일이 저장될 경로와 확장자 지정.(suffix의 디폴트가 jsp이므로 안써도됨) -->
 	</mvc:view-resolvers>
+	
+	<!-- 리소스 매핑 -->
 	<mvc:resources location="/resources" mapping="/resouces/**"/>
+	
 	<mvc:resources location="file:///C:/aaa/upload/" mapping="/image/**"/>
+	
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"><!-- bean id는 고정 -->
 		<property name="basenames"><!-- basename은 list를 값으로 갖고 여러 설정파일일 경우 value태그를 추가 -->
 			<list>
@@ -34,4 +39,19 @@ http://www.springframework.org/schema/aop/spring-aop.xsd">
 	</bean>
 	
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+
+	<!-- for google -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com"/><!-- 메일서버 호스트 -->
+		<property name="port" value="587"/><!-- 메일서버 포트번호 -->
+		<property name="username" value="mongtescu@gmail.com"/>
+		<property name="password" value="Chan2711!"/>
+		<!-- 보안 연결 TLS와 관련된 설정 -->
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
 </beans>

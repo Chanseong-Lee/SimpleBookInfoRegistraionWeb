@@ -85,7 +85,7 @@
 			<artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
 			<version>1.16</version>
 		</dependency>
-			
+		<!-- mybatis -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
@@ -101,16 +101,48 @@
 			<artifactId>spring-orm</artifactId>
 			<version>${springframework-version}</version>
 		</dependency>
+		<!-- multipart -->
 		<dependency>
  			  <groupId>commons-fileupload</groupId>
 			  <artifactId>commons-fileupload</artifactId>
  		      <version>1.4</version>
 		</dependency>
+		<!-- tika -->
 		<dependency>
 			<groupId>org.apache.tika</groupId>
 			<artifactId>tika-core</artifactId>
 			<version>1.18</version>
 		</dependency>
+		<!-- email인증 관련 -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${springframework-version}</version>
+		</dependency>
+		<!-- spring security -->
+		<!--스프링시큐리티 web 라이브러리--> 
+		<dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>4.2.20.RELEASE</version>
+        </dependency>
+        <!--스프링시큐리티 core 라이브러리-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>4.2.20.RELEASE</version>
+        </dependency>
+        <!--스프링시큐리티 config 라이브러리-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>4.2.20.RELEASE</version>
+        </dependency>
 	</dependencies>
 
 	<build>

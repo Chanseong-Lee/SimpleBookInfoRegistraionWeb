@@ -1,7 +1,10 @@
 package service;
 
+import org.springframework.stereotype.Service;
+
 import booksdao.BooksDAO;
 
+@Service
 public class ContentService {
 	private BooksDAO booksDAO;
 	

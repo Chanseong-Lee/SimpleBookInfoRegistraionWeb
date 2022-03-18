@@ -1,5 +1,8 @@
 package booksdto;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("booksDTO")
 public class BooksDTO {
 	private Long num;
 	private Long isbn;
